@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center_vertical"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="JEE Main and Advanced Cutoff"
+        android:textColor="@android:color/black"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+    <EditText
+        android:id="@+id/csab_input"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:inputType="number"
+        android:layout_margin="15dp"
+        android:hint="Jee Main Rank(CRL)"/>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/csab_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CSAB (II)"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        android:background="@android:color/holo_red_light"
+        android:textColor="@android:color/white"
+        android:padding="10dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/josaa_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="JOSAA (VI)"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        android:background="#00695C"
+        android:textColor="@android:color/white"
+        android:padding="10dp"
+        android:layout_gravity="center_horizontal"/>
+
+
+
+
+</LinearLayout>
