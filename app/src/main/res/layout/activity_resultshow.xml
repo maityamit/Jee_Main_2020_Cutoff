@@ -6,22 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".ResultshowActivity">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:id="@+id/edtSearch"
-        android:layout_margin="10dp"
-        android:maxLines="1"
-        android:singleLine="true"
-        android:paddingLeft="10dp"
-        android:hint="Search Category"
-        android:drawablePadding="15dp"/>
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
         android:id="@+id/listView"
-        android:layout_below="@+id/edtSearch"
         android:layout_margin="10dp"/>
 
     <ProgressBar

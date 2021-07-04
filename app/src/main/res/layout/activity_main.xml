@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,6 +7,15 @@
     android:layout_gravity="center_vertical"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -31,7 +40,106 @@
         android:layout_height="50dp"
         android:inputType="number"
         android:layout_margin="15dp"
-        android:hint="Jee Main Rank(CRL)"/>
+        android:hint="Jee Rank ** First Read Instructions"/>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+
+
+
+        <RadioGroup
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+
+            <RadioButton
+                android:id="@+id/radio__csab_ai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AI"
+                android:onClick="onRadioButtonClicked"/>
+
+            <RadioButton
+                android:id="@+id/radio__csab_os"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OS"
+                android:onClick="onRadioButtonClicked"/>
+
+            <RadioButton
+                android:id="@+id/radio__csab_hs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HS"
+                android:onClick="onRadioButtonClicked"/>
+
+
+        </RadioGroup>
+
+
+        <RadioGroup
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+
+            <RadioButton
+                android:id="@+id/radio__csab_gen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OPEN"
+                android:onClick="onRadioButton_Clicked"/>
+
+            <RadioButton
+                android:id="@+id/radio__csab_ews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="EWS"
+                android:onClick="onRadioButton_Clicked"/>
+
+            <RadioButton
+                android:id="@+id/radio__csab_obc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OBC-NCL"
+                android:onClick="onRadioButton_Clicked"/>
+
+            <RadioButton
+                android:id="@+id/radio__csab_sc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SC"
+                android:onClick="onRadioButton_Clicked"/>
+            <RadioButton
+                android:id="@+id/radio__csab_st"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ST"
+                android:onClick="onRadioButton_Clicked"/>
+
+
+        </RadioGroup>
+
+
+
+
+    </LinearLayout>
+
+
+
 
 
     <androidx.appcompat.widget.AppCompatButton
@@ -60,6 +168,21 @@
         android:layout_gravity="center_horizontal"/>
 
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:layout_marginStart="20sp"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:layout_marginEnd="20sp"
+            android:layout_marginBottom="40dp"
+            android:text="*** Instructions\n\n1. For CSAB Enter only CRL\n2.For Josaa Enter your category rank\n3.For IIT enter Advance Rank\n4.Every time After one result please clear your app from RAM then check again once"/>
+
+
 
 
 </LinearLayout>
+
+
+</ScrollView>

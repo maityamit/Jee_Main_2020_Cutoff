@@ -31,7 +31,6 @@ import java.util.List;
 public class ResultshowActivity extends AppCompatActivity {
 
 
-    EditText edtSearch;
     ListView listView;
 
     public static List<CountryModel> countryModelsList = new ArrayList<>();
@@ -41,6 +40,8 @@ public class ResultshowActivity extends AppCompatActivity {
     int realrank = 0;
     String type = "";
     String rank = "";
+    String caste = "";
+    String category = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,16 +50,27 @@ public class ResultshowActivity extends AppCompatActivity {
 
         rank = getIntent().getExtras().get("RANK").toString();
         type = getIntent().getExtras().get("TYPE").toString();
+        caste = getIntent().getExtras().get("CASTE").toString();
+        category = getIntent().getExtras().get("CATEGORY").toString();
 
         realrank = Integer.parseInt(rank);
 
 
 
-        edtSearch = findViewById(R.id.edtSearch);
+
         listView = findViewById(R.id.listView);
         simpleArcLoader = findViewById(R.id.loader);
 
 
+
+
+
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
 
         if (type.equals("CSAB")){
             fetchData();
@@ -68,30 +80,7 @@ public class ResultshowActivity extends AppCompatActivity {
         }
 
 
-
-
-        edtSearch.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                myCustomAdapter.getFilter().filter(s);
-                myCustomAdapter.notifyDataSetChanged();
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
     }
-
-
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -102,7 +91,7 @@ public class ResultshowActivity extends AppCompatActivity {
 
     private void fetchData() {
 
-        String url  = "https://s41.aconvert.com/convert/p3r68-cdx67/z5ezw-3iznr.json";
+        String url  = "https://maityamit.github.io/wbchse_hs.github.io/JSON/csab_2.json";
 
 
 
@@ -121,17 +110,17 @@ public class ResultshowActivity extends AppCompatActivity {
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
 
                                 String institute_st = jsonObject.getString("Institute");
-                                String academic_program_name_st = jsonObject.getString("Academic_0rogram_Name");
+                                String academic_program_name_st = jsonObject.getString("Academic_Program_Name");
                                 String quota_st = jsonObject.getString("Quota");
-                                String seat_type_st = jsonObject.getString("Seat_Ty0e");
+                                String seat_type_st = jsonObject.getString("Seat_Type");
                                 String gender_st = jsonObject.getString("Gender");
-                                String opening_rank_st = jsonObject.getString("O0ening_Rank");
+                                String opening_rank_st = jsonObject.getString("Opening_Rank");
                                 String closing_rank_st = jsonObject.getString("Closing_Rank");
 
 
                                 int ie = Integer.parseInt(closing_rank_st);
 
-                                if (ie>=realrank){
+                                if ((ie>=realrank)&&(caste.equals(seat_type_st))&&(category.equals(quota_st))){
                                     countryModel = new CountryModel(institute_st,academic_program_name_st,quota_st,seat_type_st,gender_st,opening_rank_st,closing_rank_st);
                                     countryModelsList.add(countryModel);
                                 }
@@ -175,7 +164,7 @@ public class ResultshowActivity extends AppCompatActivity {
 
     private void fetchData2() {
 
-        String url  = "https://s41.aconvert.com/convert/p3r68-cdx67/rey88-dteu6.json";
+        String url  = "https://maityamit.github.io/wbchse_hs.github.io/JSON/josaa_6.json";
 
 
 
@@ -194,21 +183,20 @@ public class ResultshowActivity extends AppCompatActivity {
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
 
                                 String institute_st = jsonObject.getString("Institute");
-                                String academic_program_name_st = jsonObject.getString("Academic_0rogram_Name");
+                                String academic_program_name_st = jsonObject.getString("Academic_Program_Name");
                                 String quota_st = jsonObject.getString("Quota");
-                                String seat_type_st = jsonObject.getString("Seat_Ty0e");
+                                String seat_type_st = jsonObject.getString("Seat_Type");
                                 String gender_st = jsonObject.getString("Gender");
-                                String opening_rank_st = jsonObject.getString("O0ening_Rank");
+                                String opening_rank_st = jsonObject.getString("Opening_Rank");
                                 String closing_rank_st = jsonObject.getString("Closing_Rank");
 
 
                                 int ie = Integer.parseInt(closing_rank_st);
 
-                                if (ie>=realrank){
+                                if ((ie>=realrank)&&(caste.equals(seat_type_st))&&(category.equals(quota_st))){
                                     countryModel = new CountryModel(institute_st,academic_program_name_st,quota_st,seat_type_st,gender_st,opening_rank_st,closing_rank_st);
                                     countryModelsList.add(countryModel);
                                 }
-
 
 
 
@@ -246,4 +234,14 @@ public class ResultshowActivity extends AppCompatActivity {
 
     }
 
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        Intent loginIntent = new Intent ( ResultshowActivity.this,MainActivity.class );
+        loginIntent.addFlags ( Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK );
+        startActivity ( loginIntent );
+        finish ();
+    }
 }

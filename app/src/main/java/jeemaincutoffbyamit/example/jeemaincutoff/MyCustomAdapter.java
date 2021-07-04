@@ -73,45 +73,5 @@ public class MyCustomAdapter extends ArrayAdapter<CountryModel> {
         return position;
     }
 
-    @Override
-    public Filter getFilter() {
-        Filter filter = new Filter() {
-            @Override
-            protected FilterResults performFiltering(CharSequence constraint) {
 
-                FilterResults filterResults = new FilterResults();
-                if(constraint == null || constraint.length() == 0){
-                    filterResults.count = countryModelsList.size();
-                    filterResults.values = countryModelsList;
-
-                }else{
-                    List<CountryModel> resultsModel = new ArrayList<>();
-                    String searchStr = constraint.toString().toLowerCase();
-
-                    for(CountryModel itemsModel:countryModelsList){
-                        if(itemsModel.getSeat_Type().toLowerCase().contains(searchStr)){
-                            resultsModel.add(itemsModel);
-
-                        }
-                        filterResults.count = resultsModel.size();
-                        filterResults.values = resultsModel;
-                    }
-
-
-                }
-
-                return filterResults;
-            }
-
-            @Override
-            protected void publishResults(CharSequence constraint, FilterResults results) {
-
-                countryModelsListFiltered = (List<CountryModel>) results.values;
-                ResultshowActivity.countryModelsList = (List<CountryModel>) results.values;
-                notifyDataSetChanged();
-
-            }
-        };
-        return filter;
-    }
 }
